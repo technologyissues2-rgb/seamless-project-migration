@@ -568,8 +568,3 @@ function SurveyPage() {
   );
 }
 
-// Input is kept so the exported type stays accurate; untracked.
-export type { SurveyFormValues };
-
-// Keep the Input import used if a future step needs free text.
-void Input;
