@@ -10,33 +10,167 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as FindingsRouteImport } from './routes/findings'
+import { Route as HealthEffectsRouteImport } from './routes/health-effects'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as ReferencesRouteImport } from './routes/references'
+import { Route as ResourcesRouteImport } from './routes/resources'
+import { Route as SocioEconomicEffectsRouteImport } from './routes/socio-economic-effects'
+import { Route as SurveyRouteImport } from './routes/survey'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindingsRoute = FindingsRouteImport.update({
+  id: '/findings',
+  path: '/findings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HealthEffectsRoute = HealthEffectsRouteImport.update({
+  id: '/health-effects',
+  path: '/health-effects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReferencesRoute = ReferencesRouteImport.update({
+  id: '/references',
+  path: '/references',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResourcesRoute = ResourcesRouteImport.update({
+  id: '/resources',
+  path: '/resources',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SocioEconomicEffectsRoute = SocioEconomicEffectsRouteImport.update({
+  id: '/socio-economic-effects',
+  path: '/socio-economic-effects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SurveyRoute = SurveyRouteImport.update({
+  id: '/survey',
+  path: '/survey',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/findings': typeof FindingsRoute
+  '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/references': typeof ReferencesRoute
+  '/resources': typeof ResourcesRoute
+  '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/findings': typeof FindingsRoute
+  '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/references': typeof ReferencesRoute
+  '/resources': typeof ResourcesRoute
+  '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/admin': typeof AdminRoute
+  '/findings': typeof FindingsRoute
+  '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/references': typeof ReferencesRoute
+  '/resources': typeof ResourcesRoute
+  '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/findings'
+    | '/health-effects'
+    | '/login'
+    | '/privacy'
+    | '/references'
+    | '/resources'
+    | '/socio-economic-effects'
+    | '/survey'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/findings'
+    | '/health-effects'
+    | '/login'
+    | '/privacy'
+    | '/references'
+    | '/resources'
+    | '/socio-economic-effects'
+    | '/survey'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/admin'
+    | '/findings'
+    | '/health-effects'
+    | '/login'
+    | '/privacy'
+    | '/references'
+    | '/resources'
+    | '/socio-economic-effects'
+    | '/survey'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdminRoute: typeof AdminRoute
+  FindingsRoute: typeof FindingsRoute
+  HealthEffectsRoute: typeof HealthEffectsRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  ReferencesRoute: typeof ReferencesRoute
+  ResourcesRoute: typeof ResourcesRoute
+  SocioEconomicEffectsRoute: typeof SocioEconomicEffectsRoute
+  SurveyRoute: typeof SurveyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +182,91 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/findings': {
+      id: '/findings'
+      path: '/findings'
+      fullPath: '/findings'
+      preLoaderRoute: typeof FindingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/health-effects': {
+      id: '/health-effects'
+      path: '/health-effects'
+      fullPath: '/health-effects'
+      preLoaderRoute: typeof HealthEffectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/references': {
+      id: '/references'
+      path: '/references'
+      fullPath: '/references'
+      preLoaderRoute: typeof ReferencesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/resources': {
+      id: '/resources'
+      path: '/resources'
+      fullPath: '/resources'
+      preLoaderRoute: typeof ResourcesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/socio-economic-effects': {
+      id: '/socio-economic-effects'
+      path: '/socio-economic-effects'
+      fullPath: '/socio-economic-effects'
+      preLoaderRoute: typeof SocioEconomicEffectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/survey': {
+      id: '/survey'
+      path: '/survey'
+      fullPath: '/survey'
+      preLoaderRoute: typeof SurveyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdminRoute: AdminRoute,
+  FindingsRoute: FindingsRoute,
+  HealthEffectsRoute: HealthEffectsRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  ReferencesRoute: ReferencesRoute,
+  ResourcesRoute: ResourcesRoute,
+  SocioEconomicEffectsRoute: SocioEconomicEffectsRoute,
+  SurveyRoute: SurveyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
