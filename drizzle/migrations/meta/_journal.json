@@ -1,5 +1,13 @@
 {
   "version": "7",
   "dialect": "postgresql",
-  "entries": []
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1793013766348,
+      "tag": "0000_create_research_platform_tables",
+      "breakpoints": true
+    }
+  ]
 }

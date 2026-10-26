@@ -14,16 +14,194 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      research_projects: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          description: string
+          id: string
+          objectives: string
+          publication_status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          id?: string
+          objectives?: string
+          publication_status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          id?: string
+          objectives?: string
+          publication_status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "research_projects_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "user_roles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      research_resources: {
+        Row: {
+          category: string
+          created_at: string
+          created_by: string | null
+          description: string
+          id: string
+          publication_status: string
+          source_url: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          id?: string
+          publication_status?: string
+          source_url: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          created_by?: string | null
+          description?: string
+          id?: string
+          publication_status?: string
+          source_url?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "research_resources_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "user_roles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      survey_responses: {
+        Row: {
+          age_range: string
+          anon_token: string
+          awareness_level: string | null
+          barriers: string[] | null
+          consent: boolean
+          created_at: string
+          created_at_index: string | null
+          education_level: string | null
+          employment_status: string | null
+          gender: string | null
+          health_impact_mental: number | null
+          health_impact_physical: number | null
+          id: string
+          observed_effects: string[] | null
+          services_awareness: string | null
+          socioeconomic_education: number | null
+          socioeconomic_employment: number | null
+          socioeconomic_family: number | null
+          socioeconomic_finance: number | null
+          suggestions: string | null
+        }
+        Insert: {
+          age_range: string
+          anon_token: string
+          awareness_level?: string | null
+          barriers?: string[] | null
+          consent?: boolean
+          created_at?: string
+          created_at_index?: string | null
+          education_level?: string | null
+          employment_status?: string | null
+          gender?: string | null
+          health_impact_mental?: number | null
+          health_impact_physical?: number | null
+          id?: string
+          observed_effects?: string[] | null
+          services_awareness?: string | null
+          socioeconomic_education?: number | null
+          socioeconomic_employment?: number | null
+          socioeconomic_family?: number | null
+          socioeconomic_finance?: number | null
+          suggestions?: string | null
+        }
+        Update: {
+          age_range?: string
+          anon_token?: string
+          awareness_level?: string | null
+          barriers?: string[] | null
+          consent?: boolean
+          created_at?: string
+          created_at_index?: string | null
+          education_level?: string | null
+          employment_status?: string | null
+          gender?: string | null
+          health_impact_mental?: number | null
+          health_impact_physical?: number | null
+          id?: string
+          observed_effects?: string[] | null
+          services_awareness?: string | null
+          socioeconomic_education?: number | null
+          socioeconomic_employment?: number | null
+          socioeconomic_family?: number | null
+          socioeconomic_finance?: number | null
+          suggestions?: string | null
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_survey_aggregates: { Args: never; Returns: Json }
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "moderator"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +328,8 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "moderator"],
+    },
   },
 } as const
