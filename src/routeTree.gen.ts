@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as FindingsRouteImport } from './routes/findings'
 import { Route as HealthEffectsRouteImport } from './routes/health-effects'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as ResourcesRouteImport } from './routes/resources'
@@ -37,6 +38,11 @@ const FindingsRoute = FindingsRouteImport.update({
 const HealthEffectsRoute = HealthEffectsRouteImport.update({
   id: '/health-effects',
   path: '/health-effects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -70,6 +76,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/findings': typeof FindingsRoute
   '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
@@ -81,6 +88,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/findings': typeof FindingsRoute
   '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
@@ -93,6 +101,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/findings': typeof FindingsRoute
   '/health-effects': typeof HealthEffectsRoute
+  '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
@@ -106,6 +115,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/findings'
     | '/health-effects'
+    | '/login'
     | '/privacy'
     | '/references'
     | '/resources'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/findings'
     | '/health-effects'
+    | '/login'
     | '/privacy'
     | '/references'
     | '/resources'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/findings'
     | '/health-effects'
+    | '/login'
     | '/privacy'
     | '/references'
     | '/resources'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   FindingsRoute: typeof FindingsRoute
   HealthEffectsRoute: typeof HealthEffectsRoute
+  LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
   ReferencesRoute: typeof ReferencesRoute
   ResourcesRoute: typeof ResourcesRoute
@@ -175,6 +188,13 @@ declare module '@tanstack/react-router' {
       path: '/health-effects'
       fullPath: '/health-effects'
       preLoaderRoute: typeof HealthEffectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -220,6 +240,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   FindingsRoute: FindingsRoute,
   HealthEffectsRoute: HealthEffectsRoute,
+  LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
   ReferencesRoute: ReferencesRoute,
   ResourcesRoute: ResourcesRoute,
