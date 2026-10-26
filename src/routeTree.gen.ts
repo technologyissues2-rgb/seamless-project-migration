@@ -17,6 +17,7 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ReferencesRouteImport } from './routes/references'
 import { Route as ResourcesRouteImport } from './routes/resources'
 import { Route as SocioEconomicEffectsRouteImport } from './routes/socio-economic-effects'
+import { Route as SurveyRouteImport } from './routes/survey'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -58,6 +59,11 @@ const SocioEconomicEffectsRoute = SocioEconomicEffectsRouteImport.update({
   path: '/socio-economic-effects',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SurveyRoute = SurveyRouteImport.update({
+  id: '/survey',
+  path: '/survey',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -68,6 +74,7 @@ export interface FileRoutesByFullPath {
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
   '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,6 +85,7 @@ export interface FileRoutesByTo {
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
   '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -89,6 +97,7 @@ export interface FileRoutesById {
   '/references': typeof ReferencesRoute
   '/resources': typeof ResourcesRoute
   '/socio-economic-effects': typeof SocioEconomicEffectsRoute
+  '/survey': typeof SurveyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -101,6 +110,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/resources'
     | '/socio-economic-effects'
+    | '/survey'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,6 +121,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/resources'
     | '/socio-economic-effects'
+    | '/survey'
   id:
     | '__root__'
     | '/'
@@ -121,6 +132,7 @@ export interface FileRouteTypes {
     | '/references'
     | '/resources'
     | '/socio-economic-effects'
+    | '/survey'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -132,6 +144,7 @@ export interface RootRouteChildren {
   ReferencesRoute: typeof ReferencesRoute
   ResourcesRoute: typeof ResourcesRoute
   SocioEconomicEffectsRoute: typeof SocioEconomicEffectsRoute
+  SurveyRoute: typeof SurveyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SocioEconomicEffectsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/survey': {
+      id: '/survey'
+      path: '/survey'
+      fullPath: '/survey'
+      preLoaderRoute: typeof SurveyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -204,6 +224,7 @@ const rootRouteChildren: RootRouteChildren = {
   ReferencesRoute: ReferencesRoute,
   ResourcesRoute: ResourcesRoute,
   SocioEconomicEffectsRoute: SocioEconomicEffectsRoute,
+  SurveyRoute: SurveyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
